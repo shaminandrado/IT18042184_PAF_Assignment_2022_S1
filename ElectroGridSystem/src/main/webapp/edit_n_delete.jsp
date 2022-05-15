@@ -114,8 +114,9 @@
             },
             submitHandler: function () {
             	var fromData = JSON.stringify({
+                    "id" : $('#edit_id').val(),
                     "user_id" : $('#user_id').val(),
-                    "card_number" : $('#card_number').val(),
+                    "card" : $('#card_number').val(),
                     "date" : $('#date').val(),
                     "total" : $('#total').val()
                 });
@@ -129,10 +130,11 @@
     				contentType : 'application/json',
     				data: fromData,
                     success: function(data){
+                    	console.log(data);
                     	if(data['success']=="success"){
                     		alert("Edit Successfull!");
                         	document.getElementById("hideDiv").style.display = "none";
-                            $("#userRegister")[0].reset();
+                            $("#paymentView")[0].reset();
     						reload();
     					}else{
     						alert("Unsuccessful!");
@@ -176,6 +178,7 @@
 			contentType : 'application/json',
             success: function(data){
             	console.log(data),
+                $('#edit_id').val(data['id']),
                 $('#user_id').val(data['user_id']),
                 $('#card_number').val(data['card_number']),
                 $('#date').val(data['date']),
