@@ -156,8 +156,9 @@ public class PaymentService {
 
 			while(rs.next())
 			{
+				json.put("id", rs.getInt(1));
 				json.put("user_id", rs.getInt(2));
-				json.put("card_number", rs.getInt(3));
+				json.put("card_number", rs.getString(3));
 				json.put("date", rs.getString(4));
 				json.put("total", rs.getDouble(5));
 			}

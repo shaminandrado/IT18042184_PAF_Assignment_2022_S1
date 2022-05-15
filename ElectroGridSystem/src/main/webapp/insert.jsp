@@ -109,7 +109,5 @@ $(document).ready(function () {
     $("#addPayment").submit(function(e) {
         e.preventDefault();
     });
-
 });
-
 </script>
